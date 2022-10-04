@@ -1,0 +1,34 @@
+---
+title: "LAB02"
+author: "Dharynka Tapia"
+date: "2022-10-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+library(tidymodels)
+library(corrplot)
+library(ggthemes)
+tidymodels_prefer()
+```
+
+```{r}
+diamonds %>% 
+  head()
+
+diamonds
+```
+
+```{r}
+diamonds %>% 
+  select(is.numeric) %>% 
+  cor() %>% 
+  corrplot(type = 'lower', diag = FALSE, method = 'color')
+```
+
